@@ -1,0 +1,345 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 28px;
+}
+
+h2 {
+    color: #455a64;
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* Main Content Layout */
+.main-content {
+    display: flex;
+    gap: 20px;
+    height: calc(100vh - 150px);
+    min-height: 600px;
+}
+
+/* Toolbar Styling */
+.toolbar {
+    width: 260px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+}
+
+.tools-section, .color-section, .actions-section, .stats-section {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Tool Buttons */
+.tool-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.tool-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: none;
+    background-color: #f0f4f8;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tool-btn i {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #455a64;
+}
+
+.tool-btn span {
+    font-size: 12px;
+    color: #546e7a;
+}
+
+.tool-btn:hover {
+    background-color: #e3f2fd;
+}
+
+.tool-btn.active {
+    background-color: #bbdefb;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Color Buttons */
+.color-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.color-btn {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #e0e0e0;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.color-btn:hover {
+    transform: scale(1.1);
+}
+
+.color-btn.active {
+    border: 3px solid #2c3e50;
+    transform: scale(1.1);
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.action-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    background-color: #3498db;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.action-btn:hover {
+    background-color: #2980b9;
+}
+
+#clear-grid {
+    background-color: #95a5a6;
+}
+
+#clear-grid:hover {
+    background-color: #7f8c8d;
+}
+
+#run-simulation {
+    background-color: #2ecc71;
+}
+
+#run-simulation:hover {
+    background-color: #27ae60;
+}
+
+#stop-simulation {
+    background-color: #e74c3c;
+}
+
+#stop-simulation:hover {
+    background-color: #c0392b;
+}
+
+/* Stats Display */
+.stats-display {
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.stat-label {
+    font-weight: 600;
+    color: #455a64;
+}
+
+.stat-value {
+    color: #2980b9;
+    font-weight: 600;
+}
+
+/* Grid Container Styling */
+.grid-container {
+    flex: 1;
+    position: relative;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#simulation-canvas {
+    background-color: #e8efe0; /* Light green to represent land */
+}
+
+/* Grid Dimension Labels */
+.grid-dimensions {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.dimension-label {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #455a64;
+    font-weight: bold;
+}
+
+.width-label {
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.height-label {
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%) rotate(90deg);
+}
+
+/* Info Panel */
+.info-panel {
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.info-toggle {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-toggle i {
+    font-size: 18px;
+}
+
+.info-content {
+    padding: 15px;
+    transition: max-height 0.3s ease;
+}
+
+.info-content.hidden {
+    display: none;
+}
+
+.info-content h2 {
+    margin-bottom: 10px;
+}
+
+.info-content ul {
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.info-content li {
+    margin-bottom: 8px;
+}
+
+/* Footer */
+footer {
+    margin-top: 20px;
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 14px;
+    padding: 10px;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .main-content {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .toolbar {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .tools-section, .color-section, .actions-section, .stats-section {
+        flex: 1;
+        min-width: 200px;
+        border-bottom: none;
+    }
+    
+    .grid-container {
+        height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .toolbar {
+        flex-direction: column;
+    }
+    
+    .tools-section, .color-section, .actions-section, .stats-section {
+        width: 100%;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .grid-container {
+        height: 400px;
+    }
+}
